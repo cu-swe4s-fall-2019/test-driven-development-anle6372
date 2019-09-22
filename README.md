@@ -7,6 +7,9 @@
         - Created tests for non-list input
         - Created tests for empty list input
         - Created tests for array of ones
+        - Created looped test for random integer array input
+        - Created looped test for random float array input
+
 
     2. Added calcuating functionality for math_lib.py
     

@@ -1,5 +1,7 @@
 import unittest
 import math_lib
+import random
+import statistics
 
 
 # Testing none input
@@ -71,8 +73,45 @@ class TestOnesArray(unittest.TestCase):
     def test_mean_ones_array(self):
         self.assertEqual(math_lib.list_mean([1, 1, 1, 1]), 1)
 
-    def test_ones_empty_array(self):
+    def test_stdev_ones_array(self):
         self.assertEqual(math_lib.list_stdev([1, 1, 1, 1]), 0)
+
+# Testing looped random array input
+class TestRandomIntArray(unittest.TestCase):
+
+    def test_mean_random_int_array(self):
+        for i in range(100):
+            A = []
+            for i in range(100):
+                A.append(random.randint(1, 100))
+            self.assertEqual(round(math_lib.list_mean(A), 5),
+                             round(statistics.mean(A), 5))
+
+    def test_stdev_random_int_array(self):
+        for i in range(100):
+            A = []
+            for i in range(100):
+                A.append(random.randint(1, 100))
+            self.assertEqual(round(math_lib.list_stdev(A), 5),
+                             round(statistics.pstdev(A, statistics.mean(A)), 5))
+
+class TestRandomFloatArray(unittest.TestCase):
+
+    def test_mean_random_float_array(self):
+        for i in range(100):
+            A = []
+            for i in range(100):
+                A.append(random.uniform(1, 100))
+            self.assertEqual(round(math_lib.list_mean(A), 5),
+                             round(statistics.mean(A), 5))
+
+    def test_stdev_random_float_array(self):
+        for i in range(100):
+            A = []
+            for i in range(100):
+                A.append(random.uniform(1, 100))
+            self.assertEqual(round(math_lib.list_stdev(A), 5),
+                             round(statistics.pstdev(A, statistics.mean(A)), 5))
 
 
 if __name__ == '__main__':
