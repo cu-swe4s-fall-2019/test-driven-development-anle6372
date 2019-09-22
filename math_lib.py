@@ -7,7 +7,15 @@ def list_mean(X):
         return None
     if len(X) == 0:
         return None
-    return sum(X) / len(X)
+    if not isinstance(X, list):
+        raise TypeError('Input must be list')
+    s = 0
+    for l in X:
+        if not isinstance(l, int) and not isinstance(l, float):
+            raise ValueError('Invalid type in list.')
+        s += l
+    return s / len(X)
+
 
 
 def list_stdev(X):
@@ -15,4 +23,11 @@ def list_stdev(X):
         return None
     if len(X) == 0:
         return None
-    return math.sqrt(sum([((sum(X)/len(X))-x)**2 for x in X]) / len(X))
+    if not isinstance(X, list):
+        raise TypeError('Input must be list')
+    s = 0
+    for l in X:
+        if not isinstance(l, int) and not isinstance(l, float):
+            raise ValueError('Invalid type in list.')
+        s += l
+    return math.sqrt(sum([((s/len(X))-x)**2 for x in X]) / len(X))

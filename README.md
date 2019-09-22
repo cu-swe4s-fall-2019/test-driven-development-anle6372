@@ -9,6 +9,7 @@
         - Created tests for array of ones
         - Created looped test for random integer array input
         - Created looped test for random float array input
+        - Created test for invalid list elements
 
 
     2. Added calcuating functionality for math_lib.py

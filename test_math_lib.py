@@ -113,6 +113,16 @@ class TestRandomFloatArray(unittest.TestCase):
             self.assertEqual(round(math_lib.list_stdev(A), 5),
                              round(statistics.pstdev(A, statistics.mean(A)), 5))
 
+class TestRandomLetterArray(unittest.TestCase):
+
+    def test_mean_letter_array(self):
+
+        self.assertRaises(ValueError, lambda: math_lib.list_mean(['A', 'B', 'C']))
+
+    def test_stdev_letter_array(self):
+
+        self.assertRaises(ValueError, lambda: math_lib.list_stdev(['A', 'B', 'C']))
+
 
 if __name__ == '__main__':
     unittest.main()
