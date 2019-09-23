@@ -20,3 +20,9 @@
         - Throws TypeError given null input
         - Throws TypeError given non-list input
         - Returns None for empty list input
+
+## get_data.py
+
+    1. Created testing file test_get_data.py
+        - Created test for None input
+        - Created tests for null input
