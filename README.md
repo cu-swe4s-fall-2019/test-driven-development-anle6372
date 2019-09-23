@@ -26,6 +26,8 @@
     1. Created testing file test_get_data.py
         - Created test for None input
         - Created tests for null input
+        - Created tests for non-int input
     
     2. Added error-catching for math_lib.py
         - Throws TypeError given null input
+        - Throws TypeError given incorrect input
