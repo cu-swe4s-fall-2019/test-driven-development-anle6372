@@ -113,6 +113,28 @@ class TestRandomFloatArray(unittest.TestCase):
             self.assertEqual(round(math_lib.list_stdev(A), 5),
                              round(statistics.pstdev(A, statistics.mean(A)), 5))
 
+class TestRandomIntAndFloatArray(unittest.TestCase):
+
+    def test_mean_random_int_and_float_array(self):
+        for i in range(100):
+            A = []
+            for i in range(50):
+                A.append(random.uniform(1, 100))
+            for i in range(50):
+                A.append(random.randint(1, 100))
+            self.assertEqual(round(math_lib.list_mean(A), 5),
+                             round(statistics.mean(A), 5))
+
+    def test_stdev_random_int_and_float_array(self):
+        for i in range(100):
+            A = []
+            for i in range(50):
+                A.append(random.uniform(1, 100))
+            for i in range(50):
+                A.append(random.randint(1, 100))
+            self.assertEqual(round(math_lib.list_stdev(A), 5),
+                             round(statistics.pstdev(A, statistics.mean(A)), 5))
+
 class TestRandomLetterArray(unittest.TestCase):
 
     def test_mean_letter_array(self):
