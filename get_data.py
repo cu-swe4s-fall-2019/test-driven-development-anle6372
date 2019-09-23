@@ -8,3 +8,5 @@ def read_stdin_col(col_num):
     if not isinstance(col_num, int):
         raise TypeError('Input must be integer')
         return None
+
+    return col_num

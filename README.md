@@ -27,6 +27,7 @@
         - Created test for None input
         - Created tests for null input
         - Created tests for non-int input
+        - Created test to return constant input value
     
     2. Added error-catching for math_lib.py
         - Throws TypeError given null input
