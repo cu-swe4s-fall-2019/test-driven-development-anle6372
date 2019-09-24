@@ -1,5 +1,6 @@
 import get_data
 import unittest
+import random
 
 # Testing none input
 class TestNone(unittest.TestCase):
@@ -30,9 +31,19 @@ class TestIncorrectInput(unittest.TestCase):
                           lambda: get_data.read_stdin_col(True))
 
 # Testing correct constant
-
     def test_get_data_constant(self):
         self.assertEqual(get_data.read_stdin_col(5), 5)
+
+# Testing variable constant
+    def test_get_data_variable(self):
+        A = random.randint(1, 100)
+        self.assertEqual(get_data.read_stdin_col(A), A)
+
+# Testing variable loop
+    def test_get_data_variable_loop(self):
+        for i in range(100):
+            A = random.randint(1, 100)
+            self.assertEqual(get_data.read_stdin_col(A), A)
 
 if __name__ == '__main__':
     unittest.main()
