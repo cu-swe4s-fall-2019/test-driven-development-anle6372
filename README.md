@@ -20,3 +20,19 @@
         - Throws TypeError given null input
         - Throws TypeError given non-list input
         - Returns None for empty list input
+
+## get_data.py
+
+    1. Created testing file test_get_data.py
+        - Created test for None input
+        - Created tests for null input
+        - Created tests for non-int input
+        - Created test to return constant input value
+        - Created looped test to return randomized input values
+    
+    2. Added error-catching for math_lib.py
+        - Throws TypeError given null input
+        - Throws TypeError given incorrect input
+    
+    3. Added column-return capabilities
+        - Tested indpendently of unittest due to stdin input complexity 
