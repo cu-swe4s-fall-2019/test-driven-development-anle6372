@@ -54,8 +54,18 @@ conda install matplotlib
 ## data_viz.py
 
     1. Created testing file test_data_viz.py
-        + Testing list input (identical to math_lib.py):
-            - Created test for None input
-            - Created tests for null input
-            - Created tests for non-int/float input
-            - Created tests for invalid list elements
+        - Created test for None input
+        - Created tests for null input
+        - Created tests for non-int/float input
+        - Created tests for invalid list elements
+
+    2. Added error-catching for math_lib.py
+        - Returns None given None
+        - Throws TypeError given null input
+        - Throws TypeError given non-list input
+        - Returns None for empty list input
+
+    3. Added Plotting Features for data_viz.py
+        - box plot with mean, stdev in title
+        - histogram with mean, stdev in title
+        - combo with mean, stdev in title
