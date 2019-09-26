@@ -33,3 +33,6 @@
     2. Added error-catching for math_lib.py
         - Throws TypeError given null input
         - Throws TypeError given incorrect input
+    
+    3. Added column-return capabilities
+        - Tested indpendently of unittest due to stdin input complexity 
