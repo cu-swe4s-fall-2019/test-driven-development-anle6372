@@ -1,6 +1,6 @@
 import unittest
 import data_viz
-
+import os
 
 
 # Testing none input
@@ -30,54 +30,104 @@ class TestNull(unittest.TestCase):
 # Testing incorrect input types
 class TestIncorrectInput(unittest.TestCase):
 
+    def setUp(self):
+        self.test_file_name = 'setup_test_file.txt'
+        f = open(self.test_file_name, 'w')
+        f.close()
+
+    def tearDown(self):
+        os.remove(self.test_file_name)
+
     def test_boxplot_string(self):
         self.assertRaises(TypeError,
-                          lambda: data_viz.boxplot(str('hi')))
+                          lambda: data_viz.boxplot(str('hi'), self.test_file_name))
 
     def test_histogram_string(self):
         self.assertRaises(TypeError,
-                          lambda: data_viz.histogram(str('hi')))
+                          lambda: data_viz.histogram(str('hi'), self.test_file_name))
 
     def test_combo_string(self):
         self.assertRaises(TypeError,
-                          lambda: data_viz.combo(str('hi')))
-
+                          lambda: data_viz.combo(str('hi'), self.test_file_name))
 
     def test_boxplot_int(self):
         self.assertRaises(TypeError,
-                          lambda: data_viz.boxplot(4))
+                          lambda: data_viz.boxplot(4, self.test_file_name))
 
     def test_histogram_int(self):
         self.assertRaises(TypeError,
-                          lambda: data_viz.histogram(4))
+                          lambda: data_viz.histogram(4, self.test_file_name))
 
     def test_combo_int(self):
         self.assertRaises(TypeError,
-                          lambda: data_viz.combo(4))
+                          lambda: data_viz.combo(4, self.test_file_name))
 
     def test_boxplot_float(self):
         self.assertRaises(TypeError,
-                          lambda: data_viz.boxplot(420.69))
+                          lambda: data_viz.boxplot(420.69, self.test_file_name))
 
     def test_histogram_float(self):
         self.assertRaises(TypeError,
-                          lambda: data_viz.histogram(420.69))
+                          lambda: data_viz.histogram(420.69, self.test_file_name))
 
     def test_combo_float(self):
         self.assertRaises(TypeError,
-                          lambda: data_viz.combo(420.69))
+                          lambda: data_viz.combo(420.69, self.test_file_name))
 
     def test_boxplot_Boolean(self):
         self.assertRaises(TypeError,
-                          lambda: data_viz.boxplot(True))
+                          lambda: data_viz.boxplot(True, self.test_file_name))
 
     def test_histogram_Boolean(self):
         self.assertRaises(TypeError,
-                          lambda: data_viz.histogram(True))
+                          lambda: data_viz.histogram(True, self.test_file_name))
 
     def test_combo_Boolean(self):
         self.assertRaises(TypeError,
-                          lambda: data_viz.combo(True))
+                          lambda: data_viz.combo(True, self.test_file_name))
+
+# Testing empty list input
+class TestEmptyListInput(unittest.TestCase):
+
+    def setUp(self):
+        self.test_file_name = 'setup_test_file.txt'
+        f = open(self.test_file_name, 'w')
+        f.close()
+
+    def tearDown(self):
+        os.remove(self.test_file_name)
+
+    def test_boxplot_empty_array(self):
+        self.assertEqual(data_viz.boxplot([], self.test_file_name), None)
+
+    def test_histogram_empty_array(self):
+        self.assertEqual(data_viz.histogram([], self.test_file_name), None)
+
+    def test_combo_empty_array(self):
+        self.assertEqual(data_viz.combo([], self.test_file_name), None)
+
+
+# Testing invalid list input
+class TestInvalidListInput(unittest.TestCase):
+
+    def setUp(self):
+        self.test_file_name = 'setup_test_file.txt'
+        f = open(self.test_file_name, 'w')
+        f.close()
+
+    def tearDown(self):
+        os.remove(self.test_file_name)
+
+    def test_boxplot_letter_array(self):
+        self.assertRaises(ValueError, lambda: data_viz.boxplot(['A', 'B', 'C'], self.test_file_name))
+
+    def test_histogram_letter_array(self):
+
+        self.assertRaises(ValueError, lambda: data_viz.histogram(['A', 'B', 'C'], self.test_file_name))
+
+    def test_combo_letter_array(self):
+
+        self.assertRaises(ValueError, lambda: data_viz.combo(['A', 'B', 'C'], self.test_file_name))
 
 if __name__ == '__main__':
     unittest.main()

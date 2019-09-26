@@ -1,4 +1,18 @@
 # test-driven-dev
+
+## Operation
+
+    1. Activate conda
+
+```
+conda activate swe4s
+```
+    2. Install matplotlib
+
+```
+conda install matplotlib
+```
+
 ## math_lib.py
 
     1. Created testing file test_math_lib.py
@@ -30,25 +44,18 @@
         - Created test to return constant input value
         - Created looped test to return randomized input values
     
-    2. Added error-catching for math_lib.py
+    2. Added error-catching for get_data.py
         - Throws TypeError given null input
         - Throws TypeError given incorrect input
     
     3. Added column-return capabilities
         - Tested indpendently of unittest due to stdin input complexity
 
-## data_viz.pu
+## data_viz.py
 
     1. Created testing file test_data_viz.py
         + Testing list input (identical to math_lib.py):
             - Created test for None input
             - Created tests for null input
             - Created tests for non-int/float input
-        + Testing type input:
-    
-    2. Added error-catching for math_lib.py
-        - Throws TypeError given null input
-        - Throws TypeError given incorrect input
-    
-    3. Added column-return capabilities
-        - Tested indpendently of unittest due to stdin input complexity
+            - Created tests for invalid list elements
