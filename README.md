@@ -86,4 +86,8 @@ $ bash gen_data.sh | \
     1. Created script for visualizing piped data
         - Uses get_data.py to acquire date from stdin
         - Uses data_viz.py to create plots from data
-        - Uses math_lib.py to calculate mean and stdev of data 
+        - Uses math_lib.py to calculate mean and stdev of data
+
+## README.md
+
+    1. Updated Readme to summarize changes
