@@ -13,6 +13,15 @@ conda activate swe4s
 conda install matplotlib
 ```
 
+    3. Running viz.py
+```
+$ bash gen_data.sh | \
+    python viz.py \
+        --output_file_name test_file.png \
+        --plot_type combo
+```
+        This will create a combonation boxplot and histogram with the file name "test_file.png"
+
 ## math_lib.py
 
     1. Created testing file test_math_lib.py
@@ -58,14 +67,23 @@ conda install matplotlib
         - Created tests for null input
         - Created tests for non-int/float input
         - Created tests for invalid list elements
+        - Created tests to ensure file creation
 
     2. Added error-catching for math_lib.py
         - Returns None given None
         - Throws TypeError given null input
         - Throws TypeError given non-list input
         - Returns None for empty list input
+        - Returns None if file name is already used
 
     3. Added Plotting Features for data_viz.py
         - box plot with mean, stdev in title
         - histogram with mean, stdev in title
         - combo with mean, stdev in title
+
+## viz.py
+
+    1. Created script for visualizing piped data
+        - Uses get_data.py to acquire date from stdin
+        - Uses data_viz.py to create plots from data
+        - Uses math_lib.py to calculate mean and stdev of data 

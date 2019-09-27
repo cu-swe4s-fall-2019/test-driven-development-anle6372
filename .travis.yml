@@ -12,5 +12,13 @@ before_install:
     - conda install --yes python=3.6
       
 script:
-    - bash test_viz.sh
-    - python test_viz.py
+    - python test_get_data.py
+    - python test_math_lib.py
+    - python test_data_viz.py
+    - pycodestyle get_data.py
+    - pycodestyle math_lib.py
+    - pycodestyle viz.py
+    - pycodestyle test_data_viz.py
+    - pycodestyle test_math_lib.py
+    - pycodestyle test_get_data.py
+    - pycodestyle test_data_viz.py
