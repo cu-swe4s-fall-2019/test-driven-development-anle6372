@@ -1,3 +1,13 @@
+"""Unittesting framework for math_lib.py
+
+Parameters
+----------
+None
+
+Returns
+-------
+None
+"""
 import unittest
 import math_lib
 import random
@@ -12,6 +22,7 @@ class TestNone(unittest.TestCase):
 
     def test_stdev_null(self):
         self.assertEqual(math_lib.list_stdev(None), None)
+
 
 # Testing null input
 class TestNull(unittest.TestCase):
@@ -58,6 +69,7 @@ class TestIncorrectInput(unittest.TestCase):
         self.assertRaises(TypeError,
                           lambda: math_lib.list_stdev(True))
 
+
 # Testing empty array input
 class TestEmptyArray(unittest.TestCase):
 
@@ -66,6 +78,7 @@ class TestEmptyArray(unittest.TestCase):
 
     def test_stdev_empty_array(self):
         self.assertEqual(math_lib.list_stdev([]), None)
+
 
 # Testing ones array input
 class TestOnesArray(unittest.TestCase):
@@ -76,7 +89,8 @@ class TestOnesArray(unittest.TestCase):
     def test_stdev_ones_array(self):
         self.assertEqual(math_lib.list_stdev([1, 1, 1, 1]), 0)
 
-# Testing looped random array input
+
+# Testing looped random int array input
 class TestRandomIntArray(unittest.TestCase):
 
     def test_mean_random_int_array(self):
@@ -93,8 +107,11 @@ class TestRandomIntArray(unittest.TestCase):
             for i in range(100):
                 A.append(random.randint(1, 100))
             self.assertEqual(round(math_lib.list_stdev(A), 5),
-                             round(statistics.pstdev(A, statistics.mean(A)), 5))
+                             round(statistics.pstdev(
+                                 A, statistics.mean(A)), 5))
 
+
+# Testing looped random float array input
 class TestRandomFloatArray(unittest.TestCase):
 
     def test_mean_random_float_array(self):
@@ -111,8 +128,11 @@ class TestRandomFloatArray(unittest.TestCase):
             for i in range(100):
                 A.append(random.uniform(1, 100))
             self.assertEqual(round(math_lib.list_stdev(A), 5),
-                             round(statistics.pstdev(A, statistics.mean(A)), 5))
+                             round(statistics.pstdev(
+                                 A, statistics.mean(A)), 5))
 
+
+# Testing looped random int and float array input
 class TestRandomIntAndFloatArray(unittest.TestCase):
 
     def test_mean_random_int_and_float_array(self):
@@ -133,17 +153,22 @@ class TestRandomIntAndFloatArray(unittest.TestCase):
             for i in range(50):
                 A.append(random.randint(1, 100))
             self.assertEqual(round(math_lib.list_stdev(A), 5),
-                             round(statistics.pstdev(A, statistics.mean(A)), 5))
+                             round(statistics.pstdev(
+                                 A, statistics.mean(A)), 5))
 
+
+# Testing string list array input
 class TestRandomLetterArray(unittest.TestCase):
 
     def test_mean_letter_array(self):
 
-        self.assertRaises(ValueError, lambda: math_lib.list_mean(['A', 'B', 'C']))
+        self.assertRaises(ValueError,
+                          lambda: math_lib.list_mean(['A', 'B', 'C']))
 
     def test_stdev_letter_array(self):
 
-        self.assertRaises(ValueError, lambda: math_lib.list_stdev(['A', 'B', 'C']))
+        self.assertRaises(ValueError,
+                          lambda: math_lib.list_stdev(['A', 'B', 'C']))
 
 
 if __name__ == '__main__':
